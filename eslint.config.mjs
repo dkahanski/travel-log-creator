@@ -15,5 +15,19 @@ export default withNuxt(
       semi: true,
       quotes: "double",
     },
+    ignores: ["./pnpm-lock.yaml"],
+  }, {
+    rules: {
+      "node/prefer-global/process": "off",
+      "no-console": "warn",
+      "ts/no-redeclare": "off",
+      "unicorn/filename-case": [
+        "error",
+        {
+          case: "kebabCase",
+          ignore: ["README.md"],
+        },
+      ],
+    },
   }),
 );
