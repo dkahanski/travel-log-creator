@@ -15,7 +15,7 @@ export default withNuxt(
       semi: true,
       quotes: "double",
     },
-    ignores: ["./pnpm-lock.yaml"],
+    ignores: ["./pnpm-lock.yaml", "./lib/db/mibrations/*"],
   }, {
     rules: {
       "node/prefer-global/process": "off",
