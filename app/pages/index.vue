@@ -8,10 +8,7 @@
         <p class="py-6">
           Keep log of your travels and adventures with this simple application
         </p>
-        <NuxtLink to="/" class="btn btn-accent">
-          Sign In With Github
-          <Icon name="tabler:brand-github" size="24" />
-        </NuxtLink>
+        <GithubAuthButton />
       </div>
     </div>
   </div>

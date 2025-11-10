@@ -7,10 +7,7 @@
     </div>
     <div class="flex-none">
       <ThemeSwitcher />
-      <NuxtLink to="/" class="btn btn-accent">
-        Sign In With Github
-        <Icon name="tabler:brand-github" size="24" />
-      </NuxtLink>
+      <GithubAuthButton />
     </div>
   </div>
 </template>
