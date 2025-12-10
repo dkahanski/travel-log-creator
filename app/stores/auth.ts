@@ -2,11 +2,21 @@ import { createAuthClient } from "better-auth/vue";
 import { defineStore } from "pinia";
 
 const authClient = createAuthClient();
+type SessionData = Awaited<ReturnType<typeof authClient.useSession>>;
 
 export const useAuthStore = defineStore("useAuthStore", () => {
-  const sesion = authClient.useSession();
-  const user = computed(() => sesion.value.data?.user);
-  const loading = computed(() => sesion.value.isPending || sesion.value.isRefetching);
+  const session = ref<SessionData | null>(null);
+  const loading = ref(false);
+
+  const init = async () => {
+    loading.value = true;
+    const data = await authClient.useSession(useFetch);
+
+    session.value = data;
+    loading.value = false;
+  };
+
+  const user = computed(() => session.value?.data?.user);
 
   const signIn = async () => {
     await authClient.signIn.social({
@@ -21,5 +31,5 @@ export const useAuthStore = defineStore("useAuthStore", () => {
     navigateTo("/");
   };
 
-  return { loading, signIn, signOut, user };
+  return { init, loading, signIn, signOut, user };
 });
