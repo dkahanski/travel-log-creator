@@ -3,7 +3,7 @@ const authStore = useAuthStore();
 </script>
 
 <template>
-  <div class="hero bg-base-300 container mx-auto mt-4">
+  <div class="hero bg-base-300 container mx-auto mt-4 self-start">
     <div class="hero-content text-center">
       <div class="max-w-md">
         <h1 class="text-5xl font-bold">

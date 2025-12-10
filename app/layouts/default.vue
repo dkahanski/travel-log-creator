@@ -6,7 +6,7 @@ await store.init();
 <template>
   <div class="flex min-h-screen flex-col">
     <NavBar />
-    <main>
+    <main class="flex flex-1">
       <slot />
     </main>
   </div>
