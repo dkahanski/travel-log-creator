@@ -9,7 +9,12 @@ const props = defineProps<{
 
 <template>
   <div :class="{ tooltip: !props.textVisible }" class=" tooltip-right" :data-tip="props.text">
-    <NuxtLink :to="props.href" class="flex items-center gap-2 p-2 hover:bg-base-100 hover:cursor-pointer">
+    <NuxtLink
+      :to="props.href"
+      :class="{ 'bg-primary/10': $route.path === props.href }"
+      :data-test="$route.path"
+      class="flex items-center gap-2 p-2 hover:bg-base-100 hover:cursor-pointer"
+    >
       <Icon :name="props.iconName" size="24" />
       <span v-if="props.textVisible">{{ props.text }}</span>
     </NuxtLink>
